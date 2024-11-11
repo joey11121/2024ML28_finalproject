@@ -7,7 +7,7 @@ from typing import Tuple, List
 import os
 
 # Import necessary classes from training script
-from train_crnn_torch2 import CRNN, MusicTokenizer
+from train_crnn_torch import CRNN, MusicTokenizer
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
