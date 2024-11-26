@@ -9,7 +9,7 @@ import glob
 import time
 
 # Import necessary classes from training script
-from train_crnn_torch import CRNN, MusicTokenizer
+from train_crnn_agnostic import CRNN, MusicTokenizer
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -254,7 +254,7 @@ class SingleImageTester:
 
 def main():
     # Configuration
-    model_path = './checkpoints/best_model.pt'
+    model_path = './checkpoints/agnostic/best_model.pt'
     data_dir = '../primus'
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     
@@ -267,42 +267,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-"""
-def main():
-    # Configuration
-    model_path = './checkpoints/best_model.pt'
-    data_dir = '../primus'
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    
-    # Create tester
-    tester = SingleImageTester(model_path, data_dir, device)
-    
-    # Test a single image
-    # Replace with your image path
-    #image_path = "../primus/000100146-1_1_1/000100146-1_1_1.png"
-    image_path = "../primus/201002876-1_1_1/201002876-1_1_1.png"
-    
-    prediction, true_label, is_correct = tester.test_single_image(image_path)
-    
-    # Print results
-    print(f"\nResults for {image_path}:")
-    print(f"\nPrediction:\n{prediction}")
-    print(f"\nTrue Label:\n{true_label}")
-    print(f"\nIs_correct: {is_correct}")
-    if not is_correct:
-        pred_symbols = prediction.split('\t')
-        true_symbols = true_label.split('\t')
-        error_rate, operations = tester.calculate_edit_distance(true_symbols, pred_symbols)
-        
-        print(f"Sequence length: {len(true_symbols)}")
-        print(f"Symbol Error Rate: {error_rate:.2%}")
-        
-        logger.info("\nDetailed comparison:")
-        #logger.info("\nRequired operations to correct prediction:")
-        for i, op in enumerate(operations, 1):
-            print(f"{i}. {op}")
-
-if __name__ == '__main__':
-    main()
-"""
