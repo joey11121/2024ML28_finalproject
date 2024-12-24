@@ -20,27 +20,16 @@ The preprocess directory contains scripts for dataset generation and labeling. T
 Data Collection
 
 Create two folders for storing downloaded sheet music:
-
 pdf/: PDF format sheet music from Musescore
 mxl/: MXL format sheet music from Musescore
 
-
-
-
 Data Processing Pipeline
 
-split_measure.py: Splits sheet music into individual measures in .musicxml format
-xml2pdf.py: Converts split measures from .musicxml to .pdf format
-crop_image.py: Processes .pdf files to create standardized 128px height .png images
-semantic.py: Generates labels for each image using split musicxml files, outputs .semantic files
+* split_measure.py: Splits sheet music into individual measures in .musicxml format
+* xml2pdf.py: Converts split measures from .musicxml to .pdf format
+* crop_image.py: Processes .pdf files to create standardized 128px height .png images
+s* emantic.py: Generates labels for each image using split musicxml files, outputs .semantic files
 
-
-
-Input/Output Specifications:
-
-Input: PDF and MXL files from Musescore
-Intermediate: .musicxml, .pdf files
-Output: 128px height .png images with corresponding .semantic label files
 
 ### Model Training
 The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation:
