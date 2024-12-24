@@ -25,7 +25,8 @@ mxl/: MXL format sheet music from Musescore
 * xml2pdf.py: Converts split measures from .musicxml to .pdf format
 * crop_image.py: Processes .pdf files to create standardized 128px height .png images
 * semantic.py: Generates labels for each image using split musicxml files, outputs .semantic files
-You wiil get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. 
+
+You will get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. 
 
 ## YOLO Model Training
 The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation:
