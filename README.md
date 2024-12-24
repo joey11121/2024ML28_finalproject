@@ -12,26 +12,21 @@ sheet-music-scanner/
 └── yolo_train/         # YOLO model training scripts
 ```
 
-## Components
-
-### Preprocessing
+## Preprocessing
 The preprocess directory contains scripts for dataset generation and labeling. The pipeline includes:
 
-Data Collection
-
+### Data Collection
 Create two folders for storing downloaded sheet music:
 pdf/: PDF format sheet music from Musescore
 mxl/: MXL format sheet music from Musescore
 
-Data Processing Pipeline
-
+### Data Processing Pipeline
 * split_measure.py: Splits sheet music into individual measures in .musicxml format
 * xml2pdf.py: Converts split measures from .musicxml to .pdf format
 * crop_image.py: Processes .pdf files to create standardized 128px height .png images
 s* emantic.py: Generates labels for each image using split musicxml files, outputs .semantic files
 
-
-### Model Training
+## YOLO Model Training
 The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation:
 - Model architecture details
 - Training procedures
