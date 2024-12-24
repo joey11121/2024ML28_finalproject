@@ -29,13 +29,31 @@ mxl/: MXL format sheet music from Musescore
 You will get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. 
 
 ## YOLO Model Training
-The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation:
-- Model architecture details
-- Training procedures
-- Evaluation metrics
-- Pretrained models (if available)
 
-### Postprocessing
+## CRNN Model Training
+The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation. Run the train_crnn_semantic.py with your own dataset and parameters by the following shell command:
+```bash
+# Set environment variables
+export DATA_PATH=/path/to/dataset
+
+# Run training with custom parameters
+python train_crnn.py \
+    --data_dir $DATA_PATH \
+    --num_epochs 200 \
+    --batch_size 48 \
+    --patience 25 \
+    --device cuda
+```
+
+#### Parameters
+* `--data_dir`: Path to dataset directory
+* `--num_epochs`: Number of training epochs (default: 200)
+* `--batch_size`: Batch size for training (default: 48)
+* `--patience`: Early stopping patience (default: 25)
+* `--device`: Training device ('cuda' or 'cpu')
+
+
+## Postprocessing
 The `postprocess` directory contains utilities for converting model outputs to music:
 - Label to music conversion process
 - Output format specifications
@@ -118,3 +136,4 @@ If you use this project in your research, please cite:
 - List any acknowledgments
 - Credit external resources
 - Mention inspirations
+
