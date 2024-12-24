@@ -24,7 +24,7 @@ mxl/: MXL format sheet music from Musescore
 * split_measure.py: Splits sheet music into individual measures in .musicxml format
 * xml2pdf.py: Converts split measures from .musicxml to .pdf format
 * crop_image.py: Processes .pdf files to create standardized 128px height .png images
-s* emantic.py: Generates labels for each image using split musicxml files, outputs .semantic files
+* semantic.py: Generates labels for each image using split musicxml files, outputs .semantic files
 
 ## YOLO Model Training
 The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation:
