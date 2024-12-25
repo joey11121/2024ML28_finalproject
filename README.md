@@ -21,10 +21,8 @@ pip install -r crnn_requirements.txt
 conda create -n yolo_env python=3.8
 conda activate yolo_env
 pip install -r yolo_requirements.txt
-
-
-## Project Structure
 ```
+## Project Structure
 sheet-music-scanner/
 ├── preprocess/          # Dataset generation scripts
 ├── model_train/         # CRNN model training files
