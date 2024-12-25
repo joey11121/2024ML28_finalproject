@@ -12,7 +12,7 @@ sheet-music-scanner/
 ├── model_train/         # CRNN model training files
 ├── postprocess/         # Music conversion utilities
 └── yolo_train/         # YOLO model training scripts
-```
+
 
 ## Preprocessing
 The preprocess directory contains scripts for dataset generation and labeling. Here is the procedure for creating your own dataset. 
