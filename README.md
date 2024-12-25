@@ -5,23 +5,7 @@ A deep learning-based sheet music scanning and recognition system that converts 
 This project  uses YOLO to detect the staff lines of each sheet music and CRNN to detect the information on the sheet music. 
 
 ## Environment Setup
-### WSL & PyTorch Setup
-We conducted our experiment mostly on WSL Ubuntu20.04. We used PyTorch. Here is a note for the setup of WSL and PyTorch. 
-https://www.notion.so/12c40750f6e180789d30d0e918050818
-### Package Dependency
-The project requires two separate Conda environments for CRNN and YOLO models. For CRNN model training and data preprocessing, create an environment with Python 3.10 and install dependencies from `crnn_requirements.txt`. For YOLO model training, create a separate environment with Python 3.8 and install dependencies from `yolo_requirements.txt`. Use the following commands:
 
-```bash
-# CRNN Environment
-conda create -n crnn_torch python=3.10
-conda activate crnn_torch
-pip install -r crnn_requirements.txt
-
-# YOLO Environment  
-conda create -n yolo_env python=3.8
-conda activate yolo_env
-pip install -r yolo_requirements.txt
-```
 ## Project Structure
 sheet-music-scanner/
 ├── preprocess/          # Dataset generation scripts
