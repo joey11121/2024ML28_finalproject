@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['musical-staff-line']
+
+roboflow:
+  workspace: final-project-51vom
+  project: final-project-8fk6m
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/final-project-51vom/final-project-8fk6m/dataset/3
