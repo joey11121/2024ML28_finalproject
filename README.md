@@ -3,6 +3,26 @@
 ## Introduction
 A deep learning-based sheet music scanning and recognition system that converts sheet music images into playable music files.
 This project  uses YOLO to detect the staff lines of each sheet music and CRNN to detect the information on the sheet music. 
+
+## Environment Setup
+### WSL & PyTorch Setup
+We conducted our experiment mostly on WSL Ubuntu20.04. We used PyTorch. Here is a note for the setup of WSL and PyTorch. 
+https://www.notion.so/12c40750f6e180789d30d0e918050818
+### Package Dependency
+The project requires two separate Conda environments for CRNN and YOLO models. For CRNN model training and data preprocessing, create an environment with Python 3.10 and install dependencies from `crnn_requirements.txt`. For YOLO model training, create a separate environment with Python 3.8 and install dependencies from `yolo_requirements.txt`. Use the following commands:
+
+```bash
+# CRNN Environment
+conda create -n crnn_torch python=3.10
+conda activate crnn_torch
+pip install -r crnn_requirements.txt
+
+# YOLO Environment  
+conda create -n yolo_env python=3.8
+conda activate yolo_env
+pip install -r yolo_requirements.txt
+
+
 ## Project Structure
 ```
 sheet-music-scanner/
@@ -29,6 +49,44 @@ mxl/: MXL format sheet music from Musescore
 You will get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. 
 
 ## YOLO Model Training
+
+The `yolo_train` directory contains YOLO model implementation for staff detection. Below is the directory structure
+yolo_train/
+├── data.yaml       # Dataset configuration
+├── Staff_detector.py       # StaffDetection Class
+├── yolo_train.py         # Dataset configuration
+├── yolo_test.py          # Model evaluation
+└── yolo_crop.py          # Bounding Box Evaluation
+#### Setup
+1. Prepare dataset in YOLO format. Our dataset is created using Roboflow, a website tool for YOLO annotation
+Link for our YOLO dataset: https://app.roboflow.com/final-project-51vom/final-project-8fk6m/models
+2. Create `data.yaml` configuration:
+```yaml
+path: /path/to/dataset  # Dataset root directory
+train: train/images     # Train images directory
+val: val/images         # Validation images directory
+test: test/images       # Test images directory
+
+names:
+  0: staff_line         # Class names
+```
+
+#### Training
+```bash
+python yolo_train.py
+```
+
+#### Testing
+```bash
+# Test on single image
+python yolo_crop.py --image_path /path/to/image.jpg
+
+# Evaluate on test set
+python yolo_test.py
+```
+
+
+
 
 ## CRNN Model Training
 The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation. Run the train_crnn_semantic.py with your own dataset and parameters by the following shell command:
@@ -59,11 +117,6 @@ The `postprocess` directory contains utilities for converting model outputs to m
 - Output format specifications
 - Audio generation details
 
-### YOLO Training
-The `yolo_train` directory contains object detection model implementation:
-- YOLO model specifications
-- Training configuration
-- Detection targets and classes
 
 ## Installation
 
