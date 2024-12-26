@@ -50,6 +50,7 @@ mxl/: MXL format sheet music from Musescore
 * xml2pdf.py: Converts split measures from .musicxml to .pdf format
 * crop_image.py: Processes .pdf files to create standardized 128px height .png images
 * semantic.py: Generates labels for each image using split musicxml files, outputs .semantic files
+* package.py: Organizes the dataset by creating folders where each folder contains one image file along with its corresponding label file
 
 You will get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. 
 To access our example dataset, you can follow the link here
@@ -66,9 +67,10 @@ yolo_train/
 └── yolo_crop.py          # Bounding Box Evaluation
 ```
 #### Setup
-1. Prepare dataset in YOLO format. Our dataset is created using Roboflow, a website tool for YOLO annotation
+1. Prepare dataset in YOLO format. Our dataset is created using Roboflow, a website tool for YOLO annotation.
 Link for our YOLO dataset: https://app.roboflow.com/final-project-51vom/final-project-8fk6m/models
-2. Include `data.yaml` configuration:
+You can create your own YOLO dataset in this website as well 
+2. After you annnotate, please include `data.yaml` configuration and the dataset in the directory:
 ```yaml
 path: /path/to/dataset  # Dataset root directory
 train: train/images     # Train images directory
@@ -78,6 +80,8 @@ test: test/images       # Test images directory
 names:
   0: staff_line         # Class names
 ```
+
+The dataset should be placed under the yolo_train directory. 
 
 #### Training
 ```bash
