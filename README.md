@@ -32,7 +32,7 @@ sheet-music-scanner/
 ```
 
 ## Data Preprocessing
-The preprocess directory contains scripts for dataset generation and labeling. Here is the procedure for creating your own dataset. 
+The preprocess directory contains scripts for crnn dataset generation and labeling. Here is the procedure for creating your own dataset. 
 
 ### Data Collection
 Create two folders for storing downloaded sheet music:
@@ -46,7 +46,8 @@ mxl/: MXL format sheet music from Musescore
 * semantic.py: Generates labels for each image using split musicxml files, outputs .semantic files
 
 You will get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. 
-
+To access our example dataset, you can follow the link here
+https://drive.google.com/file/d/1RUyaMTYw3pbHBUAPmGhC7juB5oL9XsM0/view?usp=drive_link
 ## YOLO Model Training
 
 The `yolo_train` directory contains YOLO model implementation for staff detection. Below is the directory structure
@@ -61,7 +62,7 @@ yolo_train/
 #### Setup
 1. Prepare dataset in YOLO format. Our dataset is created using Roboflow, a website tool for YOLO annotation
 Link for our YOLO dataset: https://app.roboflow.com/final-project-51vom/final-project-8fk6m/models
-2. Create `data.yaml` configuration:
+2. Include `data.yaml` configuration:
 ```yaml
 path: /path/to/dataset  # Dataset root directory
 train: train/images     # Train images directory
@@ -129,7 +130,8 @@ python crnn_evaluation.py
 
 
 ## Postprocessing
-The `postprocess` directory contains utilities for converting model outputs to music:
+The `postprocess` directory contains utilities for converting model outputs to music. 
+If you want to convert the label to the music file(.mei). You can run the following command
 
 
 
