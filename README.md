@@ -51,6 +51,7 @@ mxl/: MXL format sheet music from Musescore
 * crop_image.py: Processes .pdf files to create standardized 128px height .png images
 * semantic.py: Generates labels for each image using split musicxml files, outputs .semantic files
 * package.py: Organizes the dataset by creating folders where each folder contains one image file along with its corresponding label file
+* addnoise.py: Add the noise to the dataset 
 
 You will get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. 
 To access our example dataset, you can follow the link here
