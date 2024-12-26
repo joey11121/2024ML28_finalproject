@@ -31,7 +31,7 @@ sheet-music-scanner/
 └── yolo_train/         # YOLO model training scripts
 ```
 
-## Preprocessing
+## Data Preprocessing
 The preprocess directory contains scripts for dataset generation and labeling. Here is the procedure for creating your own dataset. 
 
 ### Data Collection
@@ -90,7 +90,16 @@ python yolo_test.py
 
 
 ## CRNN Model Training
-The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation. Run the train_crnn_semantic.py with your own dataset and parameters by the following shell command:
+The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation. Below is the directory structure:
+```
+model_train/
+├── train_crnn.py # Train the crnn model as we have done. 
+├── crnn_evaluation.py # Evaluate the model with SER. 
+├── checkpoints # The folder for saving model checkpoints
+├── training_progress # Save the training records
+
+```
+Run the train_crnn_semantic.py with your own dataset and parameters by the following shell command:
 ```bash
 # Set environment variables
 export DATA_PATH=/path/to/dataset
@@ -103,6 +112,11 @@ python train_crnn.py \
     --patience 25 \
     --device cuda
 ```
+The file will split the dataset into training, valid, and test. The data list will be saved in the dataset_splits_{datetime}.txt. It helps user to identify the test dataset in the evaluation stage. To evaluate the CRNN model after training: 
+```bash
+# Remeber to change the file name of the dataset_split_{datetime}.txt, model checkpoint, and the directory of your testdataset. 
+python crnn_evaluation.py
+```
 
 #### Parameters
 * `--data_dir`: Path to dataset directory
@@ -112,11 +126,11 @@ python train_crnn.py \
 * `--device`: Training device ('cuda' or 'cpu')
 
 
+
+
 ## Postprocessing
 The `postprocess` directory contains utilities for converting model outputs to music:
-- Label to music conversion process
-- Output format specifications
-- Audio generation details
+
 
 
 ## Installation
@@ -149,45 +163,9 @@ python model_train/train.py --config config/crnn_config.yaml
 python postprocess/generate_music.py --input image.jpg --output music.midi
 ```
 
-## Results
-- Include sample results
-- Performance metrics
-- Example outputs
-
-## Requirements
-- Python 3.8+
-- PyTorch
-- OpenCV
-- Other dependencies (list them here)
-
-## Contributing
-We welcome contributions! Please follow these steps:
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-[Choose appropriate license]
-
-## Citation
-If you use this project in your research, please cite:
-```
-@article{your_reference,
-  title={Sheet Music Scanner},
-  author={Your Name},
-  year={2024}
-}
-```
 
 ## Contact
-- Your Name
-- Email
+- Liang-Yu, Cheng
+- joey60209@gmail.com
 - Project Link: [https://github.com/yourusername/sheet-music-scanner](https://github.com/yourusername/sheet-music-scanner)
-
-## Acknowledgments
-- List any acknowledgments
-- Credit external resources
-- Mention inspirations
 
