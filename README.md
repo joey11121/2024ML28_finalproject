@@ -56,6 +56,8 @@ mxl/: MXL format sheet music from Musescore
 You will get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. 
 To access our example dataset, you can follow the link here
 https://drive.google.com/file/d/1RUyaMTYw3pbHBUAPmGhC7juB5oL9XsM0/view?usp=drive_link
+You can run the addnoise.py to add the noise on the image dataset. 
+
 ## YOLO Model Training
 
 The `yolo_train` directory contains YOLO model implementation for staff detection. Below is the directory structure
@@ -70,6 +72,7 @@ yolo_train/
 #### Setup
 1. Prepare dataset in YOLO format. Our dataset is created using Roboflow, a website tool for YOLO annotation.
 Link for our YOLO dataset: https://app.roboflow.com/final-project-51vom/final-project-8fk6m/models
+Link for our YOLO dataset in Google drive: https://drive.google.com/drive/folders/1-Ix5zgGv9lMFO_YDPh75hWNG5DOYiHCm?usp=sharing
 You can create your own YOLO dataset in this website as well 
 2. After you annnotate, please include `data.yaml` configuration and the dataset in the directory:
 ```yaml
