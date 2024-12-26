@@ -125,7 +125,7 @@ def evaluate_model(
 def main():
     # Configuration
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    checkpoint_dir = "./checkpoints/semantic"
+    checkpoint_dir = "./checkpoints/semantic/run_20241125_125147/"
     batch_size = 32
     splits_file = "dataset_splits_20241125_125149.txt"
     
@@ -149,14 +149,13 @@ def main():
     # Find the latest model checkpoint
     runs = os.listdir(checkpoint_dir)
     latest_run = max(runs)
-    models_dir = os.path.join(checkpoint_dir, latest_run, "models")
+    models_dir = os.path.join(checkpoint_dir, latest_run)
     model_files = [f for f in os.listdir(models_dir) if f.startswith("best_model")]
-    latest_model = "best_model_epoch_181.pt"
+    latest_model = "best_model_epoch_75.pt"
     
     # Paths to model and tokenizer
-    model_path = os.path.join(models_dir, latest_model)
-    tokenizer_path = os.path.join(models_dir, "tokenizer.json")
-    
+    model_path = os.path.join(checkpoint_dir, latest_run, latest_model)
+    tokenizer_path = os.path.join(checkpoint_dir, latest_run, "tokenizer.json")
     logger.info(f"Loading model from: {model_path}")
     
     # Load model and tokenizer
