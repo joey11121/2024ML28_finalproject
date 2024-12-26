@@ -53,10 +53,10 @@ mxl/: MXL format sheet music from Musescore
 * package.py: Organizes the dataset by creating folders where each folder contains one image file along with its corresponding label file
 * addnoise.py: Add the noise to the dataset 
 
-You will get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. 
+You will get all of the .png files and the label files, and you have to put each of them into the same folder. Each folder should contain a single image and its corresponding label file. Finally, remember to create a dataset folder and move all of the folders with image and the label file to the dataset folder. You can run the addnoise.py to add the noise on the image dataset. 
 To access our example dataset, you can follow the link here.
 https://drive.google.com/file/d/1RUyaMTYw3pbHBUAPmGhC7juB5oL9XsM0/view?usp=drive_link
-You can run the addnoise.py to add the noise on the image dataset. 
+
 
 ## YOLO Model Training
 
