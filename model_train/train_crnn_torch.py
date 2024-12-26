@@ -503,5 +503,5 @@ def train_model(
     logger.info(f'Average time per batch: {timedelta(seconds=int(avg_batch_time))}')
 
 if __name__ == "__main__":
-    data_dir = "../primus"
+    data_dir = "../dataset"
     train_model(data_dir, device='cuda' if torch.cuda.is_available() else 'cpu')
