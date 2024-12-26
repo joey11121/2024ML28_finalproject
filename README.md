@@ -5,6 +5,12 @@ A deep learning-based sheet music scanning and recognition system that converts 
 This project  uses YOLO to detect the staff lines of each sheet music and CRNN to detect the information on the sheet music. 
 
 ## Environment Setup
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/joey11121/sheet-music-scanner.git
+```
 ### WSL & PyTorch Setup
 We conducted our experiment mostly on WSL Ubuntu20.04. We used PyTorch. Here is a note for the setup of WSL and PyTorch. 
 https://www.notion.so/12c40750f6e180789d30d0e918050818
@@ -146,37 +152,6 @@ Default values:
 Example usage:
 ```bash
 python semantic2mei.py --bpm 140 --num_parts 4
-```
-
-
-## Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/sheet-music-scanner.git
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-## Usage
-
-### Data Preparation
-```python
-# Example command for preprocessing
-python preprocess/prepare_data.py --input_dir /path/to/sheets --output_dir /path/to/dataset
-```
-
-### Model Training
-```python
-# Example command for training the CRNN model
-python model_train/train.py --config config/crnn_config.yaml
-```
-
-### Music Generation
-```python
-# Example command for converting sheet music to audio
-python postprocess/generate_music.py --input image.jpg --output music.midi
 ```
 
 
