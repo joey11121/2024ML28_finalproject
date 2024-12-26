@@ -161,6 +161,18 @@ Example usage:
 python semantic2mei.py --bpm 140 --num_parts 4
 ```
 
+## User Usage Simulation
+The user may want to use the image to transform it to music. The directory final_demo contains all of the files to achieve the task. 
+1. use the yolo_crop.py to crop the image
+2. Use the score_yolo_crnn.py to get the label. It will iterate through the cropped imagse of the input image and get all the label from all of the stafflines from the image. 
+3. use semantic2mei.py to get the music
+
+Example usage:
+```bash
+python yolo_crop.py --image [--input_image PATH]
+python score_yolo_crnn.py
+python semantic2mei.py [--input_dir DIR] [--output_dir DIR] [--bpm TEMPO] [--num_parts PARTS]
+```
 
 ## Contact
 - Liang-Yu, Cheng
