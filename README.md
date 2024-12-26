@@ -158,5 +158,5 @@ python semantic2mei.py --bpm 140 --num_parts 4
 ## Contact
 - Liang-Yu, Cheng
 - joey60209@gmail.com
-- Project Link: [https://github.com/yourusername/sheet-music-scanner](https://github.com/yourusername/sheet-music-scanner)
+- Project Link: [https://github.com/joey11121/2024ML28_finalproject.git](https://github.com/joey11121/2024ML28_finalproject.git)
 
