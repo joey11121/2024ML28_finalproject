@@ -104,8 +104,10 @@ python yolo_test.py
 The `model_train` directory includes CRNN (Convolutional Recurrent Neural Network) implementation. Below is the directory structure:
 ```
 model_train/
-├── train_crnn.py # Train the crnn model as we have done. 
-├── crnn_evaluation.py # Evaluate the model with SER. 
+├── train_crnn_semantic.py # Train the crnn model with semantic labeling as we have done. 
+├── train_crnn_agnostic.py # Train the crnn model with agnostic labeling as we have done. 
+├── test_agnostic.py # Train the crnn model with agnostic labeling as we have done. 
+├── semantic_test.py # Evaluate the model by the semantic labeling scheme with SER. 
 ├── checkpoints # The folder for saving model checkpoints
 ├── training_progress # Save the training records
 
@@ -126,7 +128,7 @@ python train_crnn.py \
 The file will split the dataset into training, valid, and test. The data list will be saved in the dataset_splits_{datetime}.txt. It helps user to identify the test dataset in the evaluation stage. To evaluate the CRNN model after training: 
 ```bash
 # Remeber to change the file name of the dataset_split_{datetime}.txt, model checkpoint, and the directory of your testdataset. 
-python crnn_evaluation.py
+python semantic_test.py
 ```
 
 #### Parameters
@@ -135,6 +137,7 @@ python crnn_evaluation.py
 * `--batch_size`: Batch size for training (default: 48)
 * `--patience`: Early stopping patience (default: 25)
 * `--device`: Training device ('cuda' or 'cpu')
+
 
 
 
